@@ -3,16 +3,17 @@
 </header> 
   
 <div class="navbar">
-  <a href="#" class="profile-edit">
-  </a>
+  <a href="#" class="profile-edit">Profile Editor</a>
+
+  <div class="threshold-message">
+    DUT 2 is over Threshold Temperature. Action required to shutdown test.
+  </div>
+
+  <div class="critical-message"> 
+    DUT 7 is over Critical Temperature. Test was automatically aborted.
+  </div>
 </div>
 
-<div class="threshold">
-DUT 2 is over Threshold Temperature. Action required to shutdown test.
-</div>
-<div class="critical">
-DUT 7 is over Critical Temperature. Test was automatically aborted.
-</div>
 
 <ul>
   <li ng-repeat="dut in $ctrl.duts">
