@@ -1,0 +1,97 @@
+<header>
+  <h1>Devices Under Test</h1>
+</header> 
+  
+<div class="navbar">
+  <a href="#" class="profile-edit">
+  </a>
+</div>
+
+<div class="threshold">
+DUT 2 is over Threshold Temperature. Action required to shutdown test.
+</div>
+<div class="critical">
+DUT 7 is over Critical Temperature. Test was automatically aborted.
+</div>
+
+<ul>
+  <li ng-repeat="dut in $ctrl.duts">
+  <div id="dut-item-{{dut.index}}">
+  <div class="dut-frame green">
+    <div class="dut-bar">
+      <div class="dut-title">
+        DUT {{dut.text}}: {{dut.temp}}&degC
+      </div>
+
+      <ul class="tab-bar">
+        <li class="tab-title Channels">Channels</li>
+        <li class="tab-title 5-min">5 Minutes</li>  
+        <li class="tab-title 1-hour">1 Hour</li>
+        <li class="tab-title 10-hour">10 Hours</li>
+      </ul>
+        
+      <label class="switch">
+        <input type="checkbox">
+        <div class="switch slider round"></div>
+      </label>
+    </div>
+
+
+    <div class="dut-page">
+
+      <div id="Channels" class="Channels tab">
+        <h3 class="tab-title">Channel Voltages</h3>
+        <div class="col-1">
+          <div class="channel-title">VDD</div>
+          <div class="channel-title">VCC</div>
+          <div class="channel-title">VIO</div>
+          <div class="channel-title">Other Power</div>
+          <div class="channel-title">SYSCLK</div>
+          <div class="channel-title">NPOR</div>
+          <div class="channel-title">INT</div>
+          <div class="channel-title">EWOK</div>
+          <div class="channel-title">SLAVE</div>
+          <div class="channel-title">ADC3</div>
+          <div class="channel-title">PSR1</div>
+          <div class="channel-title">PSR2</div>
+          <div class="channel-title">PSR3</div>
+          <div class="channel-title">NSR</div>
+          <div class="channel-title">D5V</div>
+          <div class="channel-title">VLDO</div>
+        </div>
+        <div class="col-2">
+          <div class="channel-title">VCP</div>
+          <div class="channel-title">5VISO_CTRB</div>
+          <div class="channel-title">BSR</div>
+          <div class="channel-title">PLR</div>
+          <div class="channel-title">SPA,B,C</div>
+          <div class="channel-title">VCM</div>
+          <div class="channel-title">DSA1,2</div>
+          <div class="channel-title">[Common Block]</div>
+          <div class="channel-title">[ADC Block]</div>
+          <div class="channel-title">[Load/Unload System</div>
+          <div class="channel-title">[Shock Block]</div>
+          <div class="channel-title"></div>
+          <div class="channel-title"></div>
+          <div class="channel-title"></div>
+          <div class="channel-title"></div>
+          <div class="channel-title"></div>
+        </div>
+      </div>
+
+      <div id="5-min" class="tab">
+        <h3 class="tab-title">5 Minute Analysis</h3>
+      </div>
+
+      <div id="1-hour" class="tab">
+        <h3 class="tab-title">1 Hour Analysis</h3>
+      </div>
+
+      <div id="10-hour" class="tab">
+        <h3 class="tab-title">10 Hour Analysis</h3>
+      </div>
+    </div>
+  </div>
+  </div>
+  </li>
+</ul>

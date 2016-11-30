@@ -1,0 +1,15 @@
+<header>
+  <h1>DUT Profile</h1>
+</header>
+
+<ul >
+  <li ng-repeat="task in $ctrl.tasks">
+
+    {{task.text}}
+
+    <label name="Channel_toggle" class="switch">
+      <input type="checkbox">
+      <div class="slider round"></div>
+    </label>
+  </li>
+</ul>
