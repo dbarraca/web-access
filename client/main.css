@@ -28,7 +28,7 @@ li.private {background: #eee;border-color: #ddd;}
 .navbar{background-color: #546E7A;}
 .navbar .profile-edit{background-color: #37474F;}
 
-.threshold-message, .critical-message{color:white; margin:4px;clear:both;}
+.threshold-message, .critical-message{color:white; margin:4px;clear:both; font-size: 1em}
 
 .dut-frame{border-radius: 3px;}
 

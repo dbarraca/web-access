@@ -1,35 +1,24 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import template from './dutList.html';
-
-var temps = new Array(150, 168, 135, 159, 150, 160, 181, 129, 130, 164, 150, 178, 167, 135, 120, 159);
+import { DUTs } from '../../api/duts.js';
 
 class dutListCtrl {
-  constructor() {
-    this.duts = [
-    {index: '1', text: '1', temp: temps[0]}, 
-    {index: '2', text: '2', temp: temps[1]}, 
-    {index: '3', text: '3', temp: temps[2]}, 
-    {index: '4', text: '4', temp: temps[3]}, 
-    {index: '5', text: '5', temp: temps[4]}, 
-    {index: '6', text: '6', temp: temps[5]}, 
-    {index: '7', text: '7', temp: temps[6]}, 
-    {index: '8', text: '8', temp: temps[7]}, 
-    {index: '9', text: '9', temp: temps[8]}, 
-    {index: '10', text: '10', temp: temps[9]}, 
-    {index: '11', text: '11', temp: temps[10]}, 
-    {index: '12', text: '12', temp: temps[11]}, 
-    {index: '13', text: '13', temp: temps[12]}, 
-    {index: '14', text: '14', temp: temps[13]}, 
-    {index: '15', text: '15', temp: temps[14]}, 
-    {index: '16', text: '16', temp: temps[15]}];
+  constructor($scope) {
+    $scope.viewModel(this);
+ 
+    this.helpers({
+      duts() {
+        return DUTs.find({});
+      }
+    })
   }
 }
  
 export default angular.module('dutList', [angularMeteor])
   .component('dutList', {
     templateUrl: 'imports/components/dutList/dutList.html',
-    controller: dutListCtrl
+    controller: ['$scope', dutListCtrl]
   });
 
 $(function(){
