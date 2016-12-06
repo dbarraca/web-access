@@ -22,16 +22,16 @@ export default angular.module('dutList', [angularMeteor])
   });
 
 $(function(){
-  for(i = 1; i< 17; i++) {
-    if(temps[i-1] >= 160){
+  for(i = 1; i< 97; i++) {
+    if(duts[i-1] >= 160){
       $('#dut-item-' + i + ' .dut-frame').toggleClass('red');
     }
   }
 });
 
 $(function(){
-  for(i = 1; i< 17; i++) {
-    if(temps[i-1] >= 180){
+  for(i = 1; i< 97; i++) {
+    if(duts[i-1] >= 180){
       $('#dut-item-' + i + ' .dut-frame').toggleClass('grey');
     }
   }

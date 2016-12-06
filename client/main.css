@@ -22,11 +22,11 @@ li.private {background: #eee;border-color: #ddd;}
 
 .navbar{font-size: 18px;color: #F0F0F0;border-radius: 1px;
   margin: 5px 0px;padding: 5px;}
-.navbar .profile-edit{float: left; border-radius: 3px; margin:8px;padding: 8px; 
+.navbar .page-button{float: left; border-radius: 3px; margin:8px;padding: 8px; 
   text-decoration: none; color:#FFF; font-size: 35px;}
 
 .navbar{background-color: #546E7A;}
-.navbar .profile-edit{background-color: #37474F;}
+.navbar .page-button{background-color: #37474F;}
 
 .threshold-message, .critical-message{color:white; margin:4px;clear:both; font-size: 1em}
 
