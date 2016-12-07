@@ -40,6 +40,10 @@ class dutListCtrl {
       $('#dut-item-1 #1-hour.tab').removeClass('open');
       $('#dut-item-1 #10-hour.tab').toggleClass('open');
     }
+
+    $scope.dutoff = function() {
+      $('#dut-item-1 .dut-frame').toggleClass('grey');
+    }
   }
 }
  

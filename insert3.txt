@@ -56,7 +56,7 @@ db.duts.update(
       $set: { 
 	     "VDD" : Math.random(),
 		 "text" : "2",
-		 "temp" : 110,
+		 "temp" : 160,
 		 "VCC" : Math.random(),
 		 "VIO" : Math.random(),
 		 "OtherPower" : Math.random(),
@@ -101,7 +101,7 @@ db.duts.update(
       $set: { 
 	     "VDD" : Math.random(),
 		 "text" : "3",
-		 "temp" : 140,
+		 "temp" : 181,
 		 "VCC" : Math.random(),
 		 "VIO" : Math.random(),
 		 "OtherPower" : Math.random(),
