@@ -20,20 +20,20 @@
   <li ng-repeat="dut in $ctrl.duts">
   <div id="dut-item-{{dut.index}}">
   <div class="dut-frame green">
-    <div class="dut-bar">
+    <div class="dut-bar"  ng-init='dutcolor(dut.index, dut.temp)'>
       <div class="dut-title">
         DUT {{dut.text}}: {{dut.temp}}&degC
       </div>
 
       <ul class="tab-bar">
-        <li class="tab-title Channels" ng-click="openChannels()">Channels</li>
-        <li class="tab-title 5-min" ng-click="open5min()">5 Minutes</li>  
-        <li class="tab-title 1-hour" ng-click="open1hr()">1 Hour</li>
-        <li class="tab-title 10-hour" ng-click="open10hr()">10 Hours</li>
+        <li class="tab-title Channels" ng-click="openChannels(dut.index)">Channels</li>
+        <li class="tab-title 5-min" ng-click="open5min(dut.index)">5 Minutes</li>  
+        <li class="tab-title 1-hour" ng-click="open1hr(dut.index)">1 Hour</li>
+        <li class="tab-title 10-hour" ng-click="open10hr(dut.index)">10 Hours</li>
       </ul>
         
       <label class="switch">
-        <input type="checkbox" ng-click="dutoff()">
+        <input type="checkbox" ng-click="dutoff(dut.index)">
         <div class="switch slider round"></div>
       </label>
     </div>
