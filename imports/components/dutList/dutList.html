@@ -26,9 +26,9 @@
 
       <ul class="tab-bar">
         <li class="tab-title Channels" ng-click="openChannels()">Channels</li>
-        <li class="tab-title 5-min" ng-click="open5min()">5 Minutes</li>  
-        <li class="tab-title 1-hour" ng-click="open1hr()">1 Hour</li>
-        <li class="tab-title 10-hour" ng-click="open10hr()">10 Hours</li>
+        <li class="tab-title 5-min" ng-click="open5min({{dut.index}})">5 Minutes</li>  
+        <li class="tab-title 1-hour" ng-click="open1hr({{dut.index}})">1 Hour</li>
+        <li class="tab-title 10-hour" ng-click="open10hr({{dut.index}})">10 Hours</li>
       </ul>
         
       <label class="switch">
@@ -62,7 +62,7 @@
         </div>
         <div class="col-2">
           <div class="channel-title">VCP: {{dut.VCP}}</div>
-          <div class="channel-title">5VISO_CTRB: {{dut.5VISO_CTRB}}</div>
+          <div class="channel-title">5VISO_CTRB: {{dut.VISO}}</div>
           <div class="channel-title">BSR: {{dut.BSR}}</div>
           <div class="channel-title">PLR: {{dut.PLR}}</div>
           <div class="channel-title">SPA,B,C: {{dut.SPABC}}</div>
@@ -71,12 +71,12 @@
           <div class="channel-title">[Common Block]: {{dut.CommonBlock}}</div>
           <div class="channel-title">[ADC Block]: {{dut.ADCBlock}}</div>
           <div class="channel-title">[Load/Unload System]: {{dut.LoadUnloadSystem}}</div>
-          <div class="channel-title">[Shock Block]: {dut.ShockBlock}}</div>
+          <div class="channel-title">[Shock Block]: {{dut.ShockBlock}}</div>
           <div class="channel-title"></div>
           <div class="channel-title"></div>
           <div class="channel-title"></div>
           <div class="channel-title"></div>
-          <div class="channel-title"></div>
+          <div class="channel-title"></div> 
         </div>
       </div>
 
