@@ -12,6 +12,34 @@ class dutListCtrl {
         return DUTs.find({});
       }
     })
+
+    $scope.openChannels = function() {
+      $('#dut-item-1 #Channels.tab').toggleClass('open');
+      $('#dut-item-1 #5-min.tab').removeClass('open');
+      $('#dut-item-1 #1-hour.tab').removeClass('open');
+      $('#dut-item-1 #10-hour.tab').removeClass('open');
+    }
+
+    $scope.open5min = function() {
+      $('#dut-item-1 #Channels.tab').removeClass('open');
+      $('#dut-item-1 #5-min.tab').toggleClass('open');
+      $('#dut-item-1 #1-hour.tab').removeClass('open');
+      $('#dut-item-1 #10-hour.tab').removeClass('open');
+    }
+
+    $scope.open1hr = function() {
+      $('#dut-item-1 #Channels.tab').removeClass('open');
+      $('#dut-item-1 #5-min.tab').removeClass('open');
+      $('#dut-item-1 #1-hour.tab').toggleClass('open');
+      $('#dut-item-1 #10-hour.tab').removeClass('open');
+    }
+
+    $scope.open10hr = function() {
+      $('#dut-item-1 #Channels.tab').removeClass('open');
+      $('#dut-item-1 #5-min.tab').removeClass('open');
+      $('#dut-item-1 #1-hour.tab').removeClass('open');
+      $('#dut-item-1 #10-hour.tab').toggleClass('open');
+    }
   }
 }
  
@@ -21,23 +49,7 @@ export default angular.module('dutList', [angularMeteor])
     controller: ['$scope', dutListCtrl]
   });
 
-$(function(){
-  for(i = 1; i< 97; i++) {
-    if(duts[i-1] >= 160){
-      $('#dut-item-' + i + ' .dut-frame').toggleClass('red');
-    }
-  }
-});
-
-$(function(){
-  for(i = 1; i< 97; i++) {
-    if(duts[i-1] >= 180){
-      $('#dut-item-' + i + ' .dut-frame').toggleClass('grey');
-    }
-  }
-});
-
-
+/*
 $(function(){
   $('#dut-item-1 .dut-frame .slider').on('click', function(){
     $('#dut-item-1 .dut-frame').toggleClass('grey');});
@@ -474,3 +486,4 @@ $(function(){
 
 });
 
+*/

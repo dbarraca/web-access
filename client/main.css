@@ -40,10 +40,10 @@ li.private {background: #eee;border-color: #ddd;}
 .dut-page{top: 0;left: 0;width: 100%;height: 100%;transition: all 0.8s ease;
   background-color: #66BB6A;border-radius: 5px;margin-bottom: 5px;
   font-size: 18px;color: #F0F0F0;margin-bottom: 5px;overflow: hidden;}
-.dut-page .tab.open{height: 100%;}
 .dut-page .col-1{width: 50%;float: left;}
 .dut-page .col-2{width: 50%;float: left;}
 .dut-page .tab{height: 0px; overflow: hidden;}
+.dut-page .tab.open{height: 100%;}
 .dut-page .tab-title{margin-left:15px;}
 .dut-page .channel-title{position: relative;padding: 5px 10px; }
 
