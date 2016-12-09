@@ -19,8 +19,8 @@
 <ul>
   <li ng-repeat="dut in $ctrl.duts">
   <div id="dut-item-{{dut.index}}">
-  <div class="dut-frame green">
-    <div class="dut-bar"  ng-init='dutcolor(dut.index, dut.temp)'>
+  <div class="dut-frame green" ng-class="dutColor(dut.temp)">
+    <div class="dut-bar">
       <div class="dut-title">
         DUT {{dut.text}}: {{dut.temp}}&degC
       </div>
