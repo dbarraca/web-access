@@ -54,6 +54,14 @@ class dutListCtrl {
         return 'green';
     }
 
+    $scope.threshold = function(temp) {
+      return temp < 160 ||  temp >= 180;
+    }
+
+    $scope.critical = function(temp) {
+      return temp < 180 ;
+    }
+
 /*
     $scope.dutColor = function(index, temp) {
       if (temp >= 180) {

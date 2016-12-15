@@ -7,13 +7,17 @@
   <a href="#" class="page-button">Profile Editor</a>
   <a href="#" class="page-button">Analysis</a>
 
-  <div class="threshold-message">
-    DUT 2 is over Threshold Temperature. Action required to shutdown test.
-  </div>
+  <ul>
+    <li ng-repeat="dut in $ctrl.duts">
+      <div class="threshold-message" ng-hide="threshold(dut.temp)">
+        DUT {{dut.index}} is over Threshold Temperature. Action required to shutdown test.
+      </div>
 
-  <div class="critical-message"> 
-    DUT 3 is over Critical Temperature. Test was automatically aborted.
-  </div>
+      <div class="critical-message" ng-hide="critical(dut.temp)"> 
+        DUT {{dut.index}} is over Critical Temperature. Test was automatically aborted.
+      </div>
+    </li>
+  </ul>
 </div>
 
 <ul>
