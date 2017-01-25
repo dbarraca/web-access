@@ -1,24 +1,22 @@
 <header>
   <h1>Devices Under Test</h1>
-</header> 
-  
-<div class="navbar">
-  <a href="#" class="page-button">Devices</a>
-  <a href="#" class="page-button">Profile Edit</a>
-  <a href="#" class="page-button">Analysis</a>
+</header>
 
+<div class="dutHeader">
   <ul>
     <li ng-repeat="dut in $ctrl.duts">
       <div class="threshold-message" ng-hide="threshold(dut.temp)">
         DUT {{dut.index}} is over Threshold Temperature. Action required to shutdown test.
       </div>
 
-      <div class="critical-message" ng-hide="critical(dut.temp)"> 
+      <div class="critical-message" ng-hide="critical(dut.temp)">
         DUT {{dut.index}} is over Critical Temperature. Test was automatically aborted.
       </div>
     </li>
   </ul>
 </div>
+
+
 
 <ul>
   <li ng-repeat="dut in $ctrl.duts">
@@ -31,11 +29,11 @@
 
       <ul class="tab-bar">
         <li class="tab-title Channels" ng-click="openChannels(dut.index)">Channels</li>
-        <li class="tab-title 5-min" ng-click="open5min(dut.index)">5 Minutes</li>  
+        <li class="tab-title 5-min" ng-click="open5min(dut.index)">5 Minutes</li>
         <li class="tab-title 1-hour" ng-click="open1hr(dut.index)">1 Hour</li>
         <li class="tab-title 10-hour" ng-click="open10hr(dut.index)">10 Hours</li>
       </ul>
-        
+
       <label class="switch">
         <input type="checkbox" ng-click="dutoff(dut.index)">
         <div class="switch slider round"></div>
@@ -69,15 +67,15 @@
       </div>
 
       <div id="5-min" class="tab">
-        <h3 class="tab-title">5 Minute Analysis</h3>
+        <h3 class="tab-title">5 Minute</h3>
       </div>
 
       <div id="1-hour" class="tab">
-        <h3 class="tab-title">1 Hour Analysis</h3>
+        <h3 class="tab-title">1 Hour</h3>
       </div>
 
       <div id="10-hour" class="tab">
-        <h3 class="tab-title">10 Hour Analysis</h3>
+        <h3 class="tab-title">10 Hour</h3>
       </div>
     </div>
   </div>

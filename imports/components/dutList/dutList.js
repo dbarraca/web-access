@@ -6,7 +6,7 @@ import { DUTs } from '../../api/duts.js';
 class dutListCtrl {
   constructor($scope) {
     $scope.viewModel(this);
- 
+
     this.helpers({
       duts() {
         return DUTs.find({});
@@ -74,12 +74,12 @@ class dutListCtrl {
       }
       else {
         return ".dutframe .green";
-//        $('#dut-item-' + index + ' .dut-frame').addClass('green');        
+//        $('#dut-item-' + index + ' .dut-frame').addClass('green');
       }
     }*/
   }
 }
- 
+
 export default angular.module('dutList', [angularMeteor])
   .component('dutList', {
     templateUrl: 'imports/components/dutList/dutList.html',
