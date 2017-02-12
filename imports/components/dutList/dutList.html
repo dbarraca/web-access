@@ -2,29 +2,18 @@
   <h1>Devices Under Test</h1>
 </header>
 
-<div class="dutHeader">
-  <ul>
-    <li ng-repeat="dut in $ctrl.duts">
-      <div class="threshold-message" ng-hide="threshold(dut.temp)">
-        DUT {{dut.index}} is over Threshold Temperature. Action required to shutdown test.
-      </div>
-
-      <div class="critical-message" ng-hide="critical(dut.temp)">
-        DUT {{dut.index}} is over Critical Temperature. Test was automatically aborted.
-      </div>
-    </li>
-  </ul>
-</div>
 
 
+<input type="file" onchange="angular.element(this).scope().readText(this)"/>
+<button ng-click="stopRun()">stop</button>
 
 <ul>
   <li ng-repeat="dut in $ctrl.duts">
   <div id="dut-item-{{dut.index}}">
-  <div class="dut-frame green" ng-class="dutColor(dut.temp)">
+  <div class="dut-frame green" ng-class="dutColor(dut.TEMP)">
     <div class="dut-bar">
       <div class="dut-title">
-        DUT {{dut.text}}: {{dut.temp}}&degC
+        DUT {{dut.index}}: {{dut.TEMP}}&degC
       </div>
 
       <ul class="tab-bar">
@@ -40,7 +29,6 @@
       </label>
     </div>
 
-
     <div class="dut-page">
 
       <div id="Channels" class="tab">
@@ -54,15 +42,19 @@
           <div class="channel-title">VCC: {{dut.VCC}}</div>
           <div class="channel-title">VDD: {{dut.VDD}}</div>
           <div class="channel-title">ADC8: {{dut.ADC8}}</div>
+          <div class="channel-title">D5V: {{dut.D5V}}</div>
         </div>
         <div class="col-2">
-          <div class="channel-title">D5V: {{dut.D5V}}</div>
           <div class="channel-title">VLDO: {{dut.VLDO}}</div>
           <div class="channel-title">VCP: {{dut.VCP}}</div>
           <div class="channel-title">DSA1: {{dut.DSA1}}</div>
           <div class="channel-title">NSR: {{dut.NSR}}</div>
           <div class="channel-title">PSR1: {{dut.PSR1}}</div>
           <div class="channel-title">PLR: {{dut.D5V}}</div>
+          <div class="channel-title">NPOR: {{dut.NPOR}}</div>
+          <div class="channel-title">INT: {{dut.INT}}</div>
+          <div class="channel-title">EWOK: {{dut.EWOK}}</div>
+          <div class="channel-title">SLAVE: {{dut.SLAVE}}</div>
         </div>
       </div>
 
@@ -82,3 +74,17 @@
   </div>
   </li>
 </ul>
+
+<div class="dutHeader">
+  <ul>
+    <li ng-repeat="dut in $ctrl.duts">
+      <div class="threshold-message" ng-hide="threshold(dut.TEMP)">
+        DUT {{dut.index}} is over Threshold Temperature. Action required to shutdown test.
+      </div>
+
+      <div class="critical-message" ng-hide="critical(dut.TEMP)">
+        DUT {{dut.index}} is over Critical Temperature. Test was automatically aborted.
+      </div>
+    </li>
+  </ul>
+</div>

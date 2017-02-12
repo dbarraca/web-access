@@ -1,0 +1,60 @@
+<header>
+  <h1>Profiles</h1>
+</header>
+
+<ul>
+  <li ng-repeat="profile in $ctrl.profiles">
+  <div id="profile-item-{{profile.index}}">
+    <div class="profile-frame orange">
+      <div class="profile-bar">
+        <div class="profile-title" ng-click="openThresholds(profile.index)">
+          Profile {{profile.index}}
+        </div>
+
+        <div class="profile-page" class="tab">
+          <ul class="threshold-titles">
+            <li>Low</li>
+            <li>High</li>
+            <li>Failure</li>
+          </ul>
+
+          <ul class="channel-titles">
+            <li>VDD</li>
+            <li>VCC</li>
+            <li>SP</li>
+            <li>ISNS</li>
+            <li>ADC8</li>
+            <li>D5V</li>
+            <li>VLDO</li>
+            <li>VCP</li>
+            <li>DSA2</li>
+            <li>DSA1</li>
+            <li>NSR</li>
+            <li>PSR1</li>
+            <li>PSR3</li>
+            <li>PSR2</li>
+            <li>PLR</li>
+          </ul>
+
+          <ul class="threshold-values">
+            <li>
+              <div class="low-value">
+                2V
+              <div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </li>
+</ul>
+
+
+<!--
+<label class="switch">
+  <input type="checkbox" ng-click="profileoff(profile.index)">
+  <div class="switch slider round"></div>
+</label>
+-->

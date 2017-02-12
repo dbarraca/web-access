@@ -1,21 +1,22 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import template from './profile.html';
+import { Profiles } from '../../api/profile.js';
 
-class profileCtrl {
+class profileEditCtrl {
   constructor($scope) {
-      $scope.viewModel(this);
+    $scope.viewModel(this);
 
-      this.helpers({
-        duts() {
-          return Profs.find({});
-        }
-      })
+    this.helpers({
+      profiles() {
+        return Profiles.find({});
+      }
+    })
   }
 }
 
-export default angular.module('profile', [angularMeteor])
-  .component('profile', {
+export default angular.module('profileEdit', [angularMeteor])
+  .component('profileEdit', {
     templateUrl: 'imports/components/profile/profile.html',
-    controller: ['$scope', profileCtrl]
+    controller: ['$scope', profileEditCtrl]
   });

@@ -1,7 +1,9 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import dutList from '../imports/components/dutList/dutList';
-import profile from '../imports/components/profile/profile';
+import profileEdit from '../imports/components/profileEdit/profileEdit';
+
+
 /*
 Was trying to have multiple pages
 Meteor.startup(function () {
@@ -24,8 +26,9 @@ Template.body.events({
 
 });
 */
+
 angular.module('web-access', [
   angularMeteor,
+  profileEdit.name,
   dutList.name,
-  profile.name
 ]);
