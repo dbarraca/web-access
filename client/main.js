@@ -1,7 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import dutList from '../imports/components/dutList/dutList';
-import profileEdit from '../imports/components/profileEdit/profileEdit';
+import profileList from '../imports/components/profileList/profileList';
 
 
 /*
@@ -29,6 +29,6 @@ Template.body.events({
 
 angular.module('web-access', [
   angularMeteor,
-  profileEdit.name,
+  profileList.name,
   dutList.name,
 ]);

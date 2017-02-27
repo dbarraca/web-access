@@ -1,0 +1,29 @@
+<header>
+  <h1>Profiles</h1>
+</header>
+
+<ul>
+  <li ng-repeat="profile in $ctrl.profiles">
+  <div id="profile-item-{{profile.index}}">
+    <div class="profile-frame orange">
+      <div class="profile-bar">
+        <div class="profile-title" ng-click="openThresholds(profile.index)">
+          Profile {{profile.index}}
+        </div>
+        <a href="#" class="profile-edit-button">Edit Profile</a>
+        <img src="edit_profile.svg" alt="Edit Profile"/>
+      </div>
+    </div>
+  </div>
+  </li>
+</ul>
+
+<button type="button" class="new-profile orange">
+  New Profile
+</button>
+<!--
+<label class="switch">
+  <input type="checkbox" ng-click="profileoff(profile.index)">
+  <div class="switch slider round"></div>
+</label>
+-->
