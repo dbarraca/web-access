@@ -1,18 +1,27 @@
 <head>
   <title>HTOL Semiconductor Test</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
 </head>
 
 <body>
-  <div class="container" ng-app="web-access">
+  <div class="container" ng-app="web-access" ng-contoller="mainController">
     <div class="navbar">
       <div class="pages">
-        <a href="#" class="page-button devices">Devices</a>
-        <a href="#" class="page-button profile">Profile</a>
-        <a href="#" class="page-button analysis">Analysis</a>
+        <a href="devices" class="page-button devices">Devices</a>
+        <a href="profiles" class="page-button profiles">Profile</a>
+        <a href="analysis" class="page-button analysis">Analysis</a>
       </div>
     </div>
 
-    <dut-list></dut-list>
-<!--    <profile-list></profile-list>-->
+    <!--<div ng-if="true" ng-include="imports/components/dutList/dutList.html"></div>-->
+
+<!--    <div ng-view></div>-->
+<ui-view></ui-view>
+<!--    <dut-list></dut-list>
+    <profile-list ng-show="true"></profile-list>-->
   </div>
 </body>
+
+

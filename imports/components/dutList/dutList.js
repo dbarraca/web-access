@@ -5,13 +5,15 @@ import { DUTs } from '../../api/duts.js';
 
 class dutListCtrl {
   constructor($scope) {
+    console.log("Dut Libdfdghmhfoller");
     $scope.viewModel(this);
-
     this.helpers({
       duts() {
         return DUTs.find({});
       }
     })
+
+    $scope.showDUTs = false;
 
     $scope.openChannels = function(index) {
       $('#dut-item-' + index + ' #Channels.tab').toggleClass('open');
@@ -54,13 +56,9 @@ class dutListCtrl {
         return 'green';
     }
 
-    $scope.threshold = function(temp) {
-      return temp < 160 || temp >= 180;
-    }
+    $scope.threshold = function(temp) {return temp < 160 || temp >= 180;}
 
-    $scope.critical = function(temp) {
-      return temp < 180 ;
-    }
+    $scope.critical = function(temp) {return temp < 180 ;}
   }
 }
 
@@ -68,4 +66,6 @@ export default angular.module('dutList', [angularMeteor])
   .component('dutList', {
     templateUrl: 'imports/components/dutList/dutList.html',
     controller: ['$scope', dutListCtrl]
-  });
+  })
+  .controller('dutListController', ['$scope', dutListCtrl]);
+

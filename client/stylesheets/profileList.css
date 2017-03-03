@@ -14,24 +14,23 @@
   padding:12px 8px;
   text-align:center;}
 
-.new-profile{
-  width:100%;
-  height:80px;
+.new-profile-link{
+  width:1000px;
+  height:200px;
   font-size:22px;
   color:#F0F0F0;
   border:5px;
   border-radius:8px;
   margin-top:5px;}
 
-.profile-edit-button{
+.profile-edit-link{
   float:right;
   font-size:12px;
   text-decoration:none;
-  background:url("edit_profile.svg");
+  background:url("client/stylesheets/icons/edit_profile.svg");
   background-repeat:no-repeat;
   color:#F0F0F0;}
 
-/*.profile-frame.orange{background-color:#F57C00;}
+.profile-frame.orange{background-color:#F57C00;}
 .profile-frame.orange:hover{background-color:#E65100}
-.new-profile.orange{background-color:#E65100}
-*/
+.new-profile-link.orange{background-color:#E65100}

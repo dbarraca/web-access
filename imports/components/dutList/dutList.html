@@ -1,3 +1,4 @@
+<div ng-show="showDUTs">
 <header>
   <h1>Devices Under Test</h1>
 </header>
@@ -5,6 +6,7 @@
 <input type="file" onchange="angular.element(this).scope().readText(this)"/>
 <button ng-click="stopRun()">stop</button>
 -->
+
 <ul>
   <li ng-repeat="dut in $ctrl.duts">
   <div id="dut-item-{{dut.index}}">
@@ -16,9 +18,9 @@
 
       <ul class="tab-bar">
         <li class="tab-title Channels" ng-click="openChannels(dut.index)">Channels</li>
-        <li class="tab-title 5-min" ng-click="open5min(dut.index)">5 Minutes</li>
+<!--        <li class="tab-title 5-min" ng-click="open5min(dut.index)">5 Minutes</li>
         <li class="tab-title 1-hour" ng-click="open1hr(dut.index)">1 Hour</li>
-        <li class="tab-title 10-hour" ng-click="open10hr(dut.index)">10 Hours</li>
+        <li class="tab-title 10-hour" ng-click="open10hr(dut.index)">10 Hours</li>-->
       </ul>
 
       <label class="switch">
@@ -55,7 +57,7 @@
           <div class="channel-title">SLAVE: {{dut.SLAVE}}</div>
         </div>
       </div>
-
+<!--
       <div id="5-min" class="tab">
         <h3 class="tab-title">5 Minute</h3>
       </div>
@@ -66,7 +68,7 @@
 
       <div id="10-hour" class="tab">
         <h3 class="tab-title">10 Hour</h3>
-      </div>
+      </div>-->
     </div>
   </div>
   </div>
@@ -85,4 +87,5 @@
       </div>
     </li>
   </ul>
+</div>
 </div>

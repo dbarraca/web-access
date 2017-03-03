@@ -5,6 +5,7 @@ import { Profiles } from '../../api/profiles.js';
 
 class profileListCtrl {
   constructor($scope) {
+    console.log("Profile List controller");
     $scope.viewModel(this);
 
     this.helpers({
@@ -19,4 +20,5 @@ export default angular.module('profileList', [angularMeteor])
   .component('profileList', {
     templateUrl: 'imports/components/profileList/profileList.html',
     controller: ['$scope', profileListCtrl]
-  });
+  })
+  .controller('profileListCtrl', ['$scope', profileListCtrl]);

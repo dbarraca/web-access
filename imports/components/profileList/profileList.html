@@ -10,20 +10,13 @@
         <div class="profile-title" ng-click="openThresholds(profile.index)">
           Profile {{profile.index}}
         </div>
-        <a href="#" class="profile-edit-button">Edit Profile</a>
-        <img src="edit_profile.svg" alt="Edit Profile"/>
+        <a href="#profile-editor" class="profile-editor-link">Edit Profile</a>
       </div>
     </div>
   </div>
   </li>
 </ul>
 
-<button type="button" class="new-profile orange">
+<a href="#profile-editor" class="new-profile-link orange">
   New Profile
-</button>
-<!--
-<label class="switch">
-  <input type="checkbox" ng-click="profileoff(profile.index)">
-  <div class="switch slider round"></div>
-</label>
--->
+</a>
