@@ -1,17 +1,31 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import dutList from '../imports/components/dutList/dutList';
-import profileList from '../imports/components/profileList/profileList';
+import profileViewer from '../imports/components/profileViewer/profileViewer';
 import profileEditor from '../imports/components/profileEditor/profileEditor';
 
-var app = angular.module('web-access', [
-  angularMeteor,
-  profileList.name,
-  dutList.name,
-  profileEditor.name,
-  "ngRoute",
-  "ui.router"])
-  .config(function($stateProvider) {
+class mainCtrl {
+  constructor($scope) {
+    $scope.hideDutList = false;
+    $scope.hideProfView = true;
+
+    $scope.dutList = function() {
+      $scope.hideDutList = false;
+      $scope.hideProfView = true;
+    }
+
+    $scope.profView = function() {
+      $scope.hideDutList = true;
+      $scope.hideProfView = false;
+    }
+
+  }
+}
+
+var app = angular.module('HTOL', [angularMeteor, profileViewer.name,
+  dutList.name, profileEditor.name])
+  .controller('mainController', ['$scope', mainCtrl]);
+/*  .config(function($stateProvider) {
     $stateProvider.state("main", {
       url:"",
       controller:"dutListController",
@@ -22,7 +36,7 @@ var app = angular.module('web-access', [
       controller:"dutListController",
       templateUrl:"imports/components/dutList/dutList.html",
     })
-  });
+  });*/
 
 /*app.config(function($routeProvider) {
   $routeProvider

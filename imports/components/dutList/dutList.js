@@ -5,15 +5,13 @@ import { DUTs } from '../../api/duts.js';
 
 class dutListCtrl {
   constructor($scope) {
-    console.log("Dut Libdfdghmhfoller");
     $scope.viewModel(this);
+
     this.helpers({
       duts() {
         return DUTs.find({});
       }
     })
-
-    $scope.showDUTs = false;
 
     $scope.openChannels = function(index) {
       $('#dut-item-' + index + ' #Channels.tab').toggleClass('open');
@@ -21,7 +19,7 @@ class dutListCtrl {
       $('#dut-item-' + index + ' #1-hour.tab').removeClass('open');
       $('#dut-item-' + index + ' #10-hour.tab').removeClass('open');
     }
-
+/*
     $scope.open5min = function(index) {
       $('#dut-item-' + index + ' #Channels.tab').removeClass('open');
       $('#dut-item-' + index + ' #5-min.tab').toggleClass('open');
@@ -42,7 +40,7 @@ class dutListCtrl {
       $('#dut-item-' + index + ' #1-hour.tab').removeClass('open');
       $('#dut-item-' + index + ' #10-hour.tab').toggleClass('open');
     }
-
+*/
     $scope.dutoff = function(index) {
       $('#dut-item-' + index + ' .dut-frame').toggleClass('grey');
     }
@@ -68,4 +66,3 @@ export default angular.module('dutList', [angularMeteor])
     controller: ['$scope', dutListCtrl]
   })
   .controller('dutListController', ['$scope', dutListCtrl]);
-

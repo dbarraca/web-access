@@ -23,13 +23,14 @@
   border-radius:8px;
   margin-top:5px;}
 
-.profile-edit-link{
+.profile-editor-link{
   float:right;
-  font-size:12px;
+  font-size:20px;
   text-decoration:none;
   background:url("client/stylesheets/icons/edit_profile.svg");
   background-repeat:no-repeat;
-  color:#F0F0F0;}
+  color:#F0F0F0;
+  text-align: center;}
 
 .profile-frame.orange{background-color:#F57C00;}
 .profile-frame.orange:hover{background-color:#E65100}

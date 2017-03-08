@@ -6,21 +6,21 @@
 </head>
 
 <body>
-  <div class="container" ng-app="web-access" ng-contoller="mainController">
+  <div class="container" ng-app="HTOL" ng-controller="mainController">
     <div class="navbar">
       <div class="pages">
-        <a href="devices" class="page-button devices">Devices</a>
-        <a href="profiles" class="page-button profiles">Profile</a>
-        <a href="analysis" class="page-button analysis">Analysis</a>
+        <a href="" class="page-button devices" ng-click="dutList()">Devices</a>
+        <a href="" class="page-button profiles" ng-click=profView()>Profile</a>
+        <a href="" class="page-button analysis">Analysis</a>
       </div>
     </div>
 
     <!--<div ng-if="true" ng-include="imports/components/dutList/dutList.html"></div>-->
 
 <!--    <div ng-view></div>-->
-<ui-view></ui-view>
-<!--    <dut-list></dut-list>
-    <profile-list ng-show="true"></profile-list>-->
+<!--<ui-view></ui-view>-->
+    <dut-list ng-hide="hideDutList"></dut-list>
+    <profile-viewer ng-hide="hideProfView"></profile-viewer>
   </div>
 </body>
 

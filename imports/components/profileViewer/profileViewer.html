@@ -1,3 +1,4 @@
+<div ng-hide="hideProfs">
 <header>
   <h1>Profiles</h1>
 </header>
@@ -10,13 +11,17 @@
         <div class="profile-title" ng-click="openThresholds(profile.index)">
           Profile {{profile.index}}
         </div>
-        <a href="#profile-editor" class="profile-editor-link">Edit Profile</a>
+        
+        <a href="" class="profile-editor-link" ng-click="profEdit()">Edit</a>
       </div>
     </div>
   </div>
   </li>
 </ul>
 
-<a href="#profile-editor" class="new-profile-link orange">
+<a href="" class="new-profile-link orange">
   New Profile
 </a>
+</div>
+
+<profile-editor ng-hide="hideProfEdit"></profile-editor>
