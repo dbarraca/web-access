@@ -1,3 +1,72 @@
+<div ng-hide="hideSteps">
 <header>
-  <h1>Profile Editor</h1>
+  <h1>Profile Editor: Profile {{currProf}}</h1>
 </header>
+
+<div class="active-block">
+	<form class="new-step-form purple">
+	  Step name
+	  <input type="text" id="stepName">
+	  <div class="statusLabel">Active</div>
+	  <input type="checkbox" id="status" value="Active">
+	  <input type="button" ng-click="addStep()" value="Add Step">
+	</form> 
+
+  <div class="block-title" ng-click="toggleActSteps()"><p>Arctive Steps</p><hr></div>
+
+	<ul ng-hide="hideActSteps">
+	  
+	  <li ng-repeat="step in $ctrl.stepsActive">
+	    <div class="stepIndex">{{$index + 1}}</div>
+
+	    <div id="step-item-{{step.index}}">
+	      <div class="step-frame purple">
+	        <div class="step-bar">
+
+	          <div class="step-title">
+	            {{step.name}}
+	            <!--Profile: {{step.profile}}-->
+	          </div>
+
+              <a href="" class="step-editor-link" ng-click="stepEdit(step.index)">Edit</a>
+              <a href="" class="step-editor-link" ng-click="inactivate(step)"> \/ </a>
+              <a href="" class="step-editor-link" ng-click="deleteStep(step._id)"> - </a>
+	        </div>
+	      </div>
+	    </div>
+	  </li>
+	</ul>
+</div> 
+
+<div class="inactive-block">
+  <div class="block-title" ng-click="toggleInactSteps()"><p>Inactive Steps</p><hr></div>
+
+	<ul ng-hide="hideInactSteps">
+	  <li ng-repeat="step in $ctrl.stepsInactive">
+	    <div id="step-item-{{step.index}}">
+	      <div class="step-frame purple">
+	        <div class="step-bar">
+
+	          <div class="step-title">
+	            {{step.name}}
+	            Profile: {{step.profile}}
+	          </div>
+
+              <a href="" class="step-editor-link" ng-click="stepEdit(step.index)">Edit</a>
+              <a href="" class="step-editor-link" ng-click="activate(step)"> /\ </a>
+              <a href="" class="step-editor-link" ng-click="deleteStep(step._id)"> - </a>
+
+	        </div>
+	      </div>
+	    </div>
+	  </li>
+	</ul>
+
+</div>
+</div>
+
+<step-editor ng-hide="hideStepEdit"></step-editor>
+
+<a href="" class="return-steps purple" ng-hide="hideStepEdit" ng-click="returnSteps()">
+  Return to Steps
+</a>

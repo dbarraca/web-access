@@ -3,25 +3,35 @@
   <h1>Profiles</h1>
 </header>
 
+  <form class="new-prof-form orange">
+    Profile name
+    <input type="text" id="profName">
+    <input type="button" ng-click="addProf()" value="Add Profile">
+  </form> 
+
 <ul>
   <li ng-repeat="profile in $ctrl.profiles">
-  <div id="profile-item-{{profile.index}}">
+  <div id="profile-item-{{profile.name}}">
     <div class="profile-frame orange">
       <div class="profile-bar">
-        <div class="profile-title" ng-click="openThresholds(profile.index)">
-          Profile {{profile.index}}
+        <div class="profile-title" ng-click="openThresholds(profile.name)">
+          {{profile.name}}
         </div>
-        
-        <a href="" class="profile-editor-link" ng-click="profEdit()">Edit</a>
+
+        <a href="" class="profile-editor-link" ng-click="profEdit(profile.name)">Edit</a>
+        <a href="" class="profile-editor-link" ng-click="deleteProf(profile._id)"> - </a>
+        <p class="profile-info">Created: firstName lastName 12/12/12 12:00</p>
+        <p class="profile-info">Edited: firstName lastName 12/12/12 12:00</p>
+
       </div>
     </div>
   </div>
   </li>
 </ul>
-
-<a href="" class="new-profile-link orange">
-  New Profile
-</a>
 </div>
 
 <profile-editor ng-hide="hideProfEdit"></profile-editor>
+
+<a href="" class="return-profiles orange  " ng-hide="hideProfEdit" ng-click="returnProfs()">
+  Return to Profiles
+</a>

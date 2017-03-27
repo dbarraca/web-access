@@ -1,0 +1,50 @@
+<header>
+  <h1>Channel Editor: {{currStep}}</h1>
+</header>
+
+
+
+<div class="channel-block">
+	<form class="load-form pink">
+	  <label for="load-input">Load Setting</label>
+	  <input type="text" id="load-input" value="{{$ctrl.load}}">
+	  <input type="button" ng-click="editLoad()" value="Change Load Setting">
+	</form> 
+
+	<form class="new-channel-form pink">
+	  <label for="channelName">Channel name</label>
+	  <input type="text" id="channelName">
+	  <input type="button" ng-click="addChannel()" value="Add Channel">
+	</form> 
+
+	<ul>
+	  <li ng-repeat="channel in $ctrl.channels">
+	    <div class="channel-index">{{$index + 1}}</div>
+
+	    <div id="channel-item-{{channel.index}}">
+	      <div class="channel-frame pink">
+	        <div class="channel-bar">
+
+	          <div class="channel-title">
+	            {{channel.name}}
+	           <!-- Step: {{channel.step}}-->
+	          </div>
+
+	          <a href="" class="channel-link" ng-click="deleteChannel(channel._id)">-</a>
+
+	          <form class="edit-channel-form pink">
+	            <label for="low-{{channel._id}}">Low</label>
+	            <input type="text" id="low-{{channel._id}}" class="threshold-input" value="{{channel.low}}">
+	            <label for="high-{{channel.id}}">High</label>
+	            <input type="text" id="high-{{channel._id}}" class="threshold-input" value="{{channel.high}}">
+	            <label for="failureCount-{{channel._id}}">Failure Count</label>
+	            <input type="text" id="failureCount-{{channel._id}}" class="threshold-input" value="{{channel.failureCount}}">
+	            <input type="button" ng-click="editChannel(channel)" value="Edit">
+	          </form> 
+	        </div>
+	      </div>
+	    </div>
+	  </li>
+	</ul>
+
+</div>

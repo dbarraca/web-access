@@ -2,6 +2,8 @@ import { DUTs } from '../api/duts.js';
 
 var amqp = require('amqplib/callback_api');
 var curStep = 0;
+var consoleTime = 0;
+var temp = 0;
 
 amqp.connect('amqp://localhost', function(err, conn) {
   conn.createChannel(function(err, ch) {
@@ -26,6 +28,11 @@ parsePacket = function(packet){
 
 var boundUpdate = Meteor.bindEnvironment(
   function(packet){
+    var diff = (temp = new Date().getTime()) - consoleTime;
+    if(diff > 1000) {
+      console.log(diff);
+      consoleTime = temp;
+    }
     updateDUT(parseInt((packet.split(" - ")[1]
       .substring(4080, 4088)), 16) - 0xAABBCCDD + 1, packet);
   },function(e) {
@@ -44,7 +51,6 @@ translateDC = function(packet, reading, step) {
 
 updateDUT = function(deviceId, packet){
   curStep++;
-  console.log(curStep);
 
   DUTs.update(
     {_id: deviceId},

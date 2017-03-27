@@ -2,7 +2,9 @@
   <title>HTOL Semiconductor Test</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+
 </head>
 
 <body>
@@ -15,10 +17,6 @@
       </div>
     </div>
 
-    <!--<div ng-if="true" ng-include="imports/components/dutList/dutList.html"></div>-->
-
-<!--    <div ng-view></div>-->
-<!--<ui-view></ui-view>-->
     <dut-list ng-hide="hideDutList"></dut-list>
     <profile-viewer ng-hide="hideProfView"></profile-viewer>
   </div>

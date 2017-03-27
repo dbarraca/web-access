@@ -3,9 +3,12 @@ import angularMeteor from 'angular-meteor';
 import dutList from '../imports/components/dutList/dutList';
 import profileViewer from '../imports/components/profileViewer/profileViewer';
 import profileEditor from '../imports/components/profileEditor/profileEditor';
+import stepEditor from '../imports/components/stepEditor/stepEditor';
 
 class mainCtrl {
   constructor($scope) {
+
+
     $scope.hideDutList = false;
     $scope.hideProfView = true;
 
@@ -22,9 +25,23 @@ class mainCtrl {
   }
 }
 
+
 var app = angular.module('HTOL', [angularMeteor, profileViewer.name,
-  dutList.name, profileEditor.name])
-  .controller('mainController', ['$scope', mainCtrl]);
+  dutList.name, profileEditor.name, stepEditor.name])
+  .controller('mainController', ['$scope', 'profileService', mainCtrl]);
+app.service('profileService', function() {
+  var currProf = {}
+  currProf.name = '';
+
+  currProf.setCurrProf = function(profName){
+    console.log("setCurrProf: profName: " + profName);
+    currProf.name = profName;
+    console.log("setCurrProf: currProf.name: " + currProf.name);
+  }
+
+  return currProf;
+});
+
 /*  .config(function($stateProvider) {
     $stateProvider.state("main", {
       url:"",

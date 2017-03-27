@@ -6,7 +6,7 @@
 <button ng-click="stopRun()">stop</button>
 -->
 <ul>
-  <li ng-repeat="dut in $ctrl.duts">
+  <li ng-repeat="dut in $ctrl.duts | orderBy: 'index'">
   <div id="dut-item-{{dut.index}}">
   <div class="dut-frame green" ng-class="dutColor(dut.TEMP)">
     <div class="dut-bar">
