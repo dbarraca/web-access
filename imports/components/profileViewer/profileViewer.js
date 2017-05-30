@@ -1,17 +1,21 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import { Meteor } from 'meteor/meteor';
 import template from './profileViewer.html';
 import { Profiles } from '../../api/profiles.js';
 import profileEditor from '../profileEditor/profileEditor';
 import { setProfile } from '../profileEditor/profileEditor';
 
 class profileViewerCtrl {
-  constructor($scope, profileService) {
+  constructor($scope, $state, profileService) {
     $scope.viewModel(this);
 
     this.helpers({
       profiles() {
         return Profiles.find({});
+      },
+      currentUser() {
+        return Meteor.user();
       }
     })
 
@@ -27,26 +31,17 @@ class profileViewerCtrl {
         alert("A profile name must be provided.");
       }
       else {
-        Profiles.insert({name: providedProfName});    
+        Profiles.insert({
+          name: providedProfName,
+          createdAt: new Date,
+          owner: Meteor.userId(),
+          username: Meteor.user().username
+        });    
       }
     }
 
     $scope.deleteProf = function(id){
       Profiles.remove({_id : id});   
-    }
-
-    $scope.hideProfs = false;
-    $scope.hideProfEdit = true;
-
-    $scope.profEdit = function(name) {
-      $scope.hideProfs = true;
-      $scope.hideProfEdit = false;
-  //    setProfile(name);
-    }
-
-    $scope.returnProfs = function() {
-      $scope.hideProfs = false;
-      $scope.hideProfEdit = true;      
     }
   }
 }
@@ -54,5 +49,5 @@ class profileViewerCtrl {
 export default angular.module('profileViewer', [angularMeteor])
   .component('profileViewer', {
     templateUrl: 'imports/components/profileViewer/profileViewer.html',
-    controller: ['$scope', 'profileService', profileViewerCtrl]
+    controller: ['$scope', '$state', 'profileService', profileViewerCtrl]
   })

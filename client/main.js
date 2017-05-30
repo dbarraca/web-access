@@ -1,34 +1,52 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import uiRouter from 'angular-ui-router';
 import dutList from '../imports/components/dutList/dutList';
 import profileViewer from '../imports/components/profileViewer/profileViewer';
 import profileEditor from '../imports/components/profileEditor/profileEditor';
 import stepEditor from '../imports/components/stepEditor/stepEditor';
+import './accounts/accounts-config.js';
+//import {Accounts} from 'meteor/accounts-base';
 
 class mainCtrl {
-  constructor($scope) {
-
-
-    $scope.hideDutList = false;
-    $scope.hideProfView = true;
-
-    $scope.dutList = function() {
-      $scope.hideDutList = false;
-      $scope.hideProfView = true;
-    }
-
-    $scope.profView = function() {
-      $scope.hideDutList = true;
-      $scope.hideProfView = false;
-    }
+  constructor($scope, $state) {
 
   }
 }
 
-
 var app = angular.module('HTOL', [angularMeteor, profileViewer.name,
-  dutList.name, profileEditor.name, stepEditor.name])
-  .controller('mainController', ['$scope', 'profileService', mainCtrl]);
+  dutList.name, profileEditor.name, stepEditor.name, "ui.router", 'accounts.ui'])
+  .controller('mainController', ['$scope', '$state', 'profileService', mainCtrl]);
+
+
+app.config(['$stateProvider', '$urlRouterProvider',
+   function($stateProvider, $router) {
+     $router.otherwise("/dut");
+
+    $stateProvider
+    .state('dutList',  {
+      url: '/dut',
+      template: '<dut-list></dut-list>',
+    })
+    .state('profView',  {
+      url: '/profile_viewer',
+      template: '<profile-viewer></profile-viewer>',
+    })
+    .state('profEdit',  {
+      url: '/profile_editor/:profileName',
+      template: '<profile-editor></profile-editor>',
+    })
+    .state('stepEdit',  {
+      url: '/step_editor/:stepName',
+      template: '<step-editor></step-editor>',
+    })
+    .state('analysis',  {
+      url: '/analysis',
+      template: '<div>analysis</div>',
+    })
+   }
+]);
+
 app.service('profileService', function() {
   var currProf = {}
   currProf.name = '';
@@ -41,36 +59,3 @@ app.service('profileService', function() {
 
   return currProf;
 });
-
-/*  .config(function($stateProvider) {
-    $stateProvider.state("main", {
-      url:"",
-      controller:"dutListController",
-      templateUrl:"../imports/components/dutList/dutList.html",
-    }),
-    $stateProvider.state("dutList", {
-      url:"/devices",
-      controller:"dutListController",
-      templateUrl:"imports/components/dutList/dutList.html",
-    })
-  });*/
-
-/*app.config(function($routeProvider) {
-  $routeProvider
-  .when("/", {
-      templateUrl : "imports/components/dutList/dutList.html",
-    //  controller: "dutListController",
-  })
-  .when("/devices", {
-      templateUrl : "imports/components/dutList/dutList.html",
-    //  controller: "dutListController",
-  })
-  .when("/profiles", {
-      templateUrl : "imports/components/profileList/profileList.html",
-    //  controller : "profileListCtrl",
-  })
-  .when("/profile-editor", {
-      templateUrl : "imports/components/profileEditor/profileEditor.html",
-    //  controller :"profileEditorCtrl",
-  });
-});*/

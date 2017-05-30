@@ -1,24 +1,22 @@
+
 <head>
   <title>HTOL Semiconductor Test</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
-<!--  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
 </head>
+
 
 <body>
   <div class="container" ng-app="HTOL" ng-controller="mainController">
     <div class="navbar">
       <div class="pages">
-        <a href="" class="page-button devices" ng-click="dutList()">Devices</a>
-        <a href="" class="page-button profiles" ng-click=profView()>Profile</a>
-        <a href="" class="page-button analysis">Analysis</a>
+        <a href="" class="page-button devices" ui-sref="dutList">Devices</a>
+        <a href="" class="page-button profiles" ui-sref="profView">Profile</a>
+        <a href="" class="page-button analysis" ui-sref="analysis">Analysis</a>
       </div>
     </div>
-
-    <dut-list ng-hide="hideDutList"></dut-list>
-    <profile-viewer ng-hide="hideProfView"></profile-viewer>
+    <login-buttons class="login"></login-buttons>
+    <ui-view/>
   </div>
 </body>
 

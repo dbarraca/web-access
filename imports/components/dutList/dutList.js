@@ -62,6 +62,7 @@ class dutListCtrl {
 
 export default angular.module('dutList', [angularMeteor])
   .component('dutList', {
+    url: '/dut',
     templateUrl: 'imports/components/dutList/dutList.html',
     controller: ['$scope', dutListCtrl]
   })

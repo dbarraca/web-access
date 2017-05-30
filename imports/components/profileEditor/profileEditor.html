@@ -3,7 +3,7 @@
   <h1>Profile Editor: Profile {{currProf}}</h1>
 </header>
 
-<div class="active-block">
+<div class="active-block" ng-show="$ctrl.currentUser">
 	<form class="new-step-form purple">
 	  Step name
 	  <input type="text" id="stepName">
@@ -28,7 +28,7 @@
 	            <!--Profile: {{step.profile}}-->
 	          </div>
 
-              <a href="" class="step-editor-link" ng-click="stepEdit(step.index)">Edit</a>
+              <a href="" class="step-editor-link" ui-sref="stepEdit({stepName: step.name})">Edit</a>
               <a href="" class="step-editor-link" ng-click="inactivate(step)"> \/ </a>
               <a href="" class="step-editor-link" ng-click="deleteStep(step._id)"> - </a>
 	        </div>
@@ -52,7 +52,7 @@
 	            Profile: {{step.profile}}
 	          </div>
 
-              <a href="" class="step-editor-link" ng-click="stepEdit(step.index)">Edit</a>
+              <a href="" class="step-editor-link" ui-sref="stepEdit({stepName: step.name})"">Edit</a>
               <a href="" class="step-editor-link" ng-click="activate(step)"> /\ </a>
               <a href="" class="step-editor-link" ng-click="deleteStep(step._id)"> - </a>
 
@@ -65,8 +65,6 @@
 </div>
 </div>
 
-<step-editor ng-hide="hideStepEdit"></step-editor>
-
-<a href="" class="return-steps purple" ng-hide="hideStepEdit" ng-click="returnSteps()">
-  Return to Steps
+<a href="" class="return-profiles orange" ui-sref="profView">
+  Return to Profiles
 </a>

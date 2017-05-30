@@ -30,19 +30,6 @@ class profileEditorCtrl {
       	{profile: step.profile, name : step.name, active: false});
     }
 
-    $scope.hideSteps = false;
-    $scope.hideStepEdit = true;
-
-    $scope.stepEdit = function(index) {
-      $scope.hideSteps = true;
-      $scope.hideStepEdit = false;
-    }
-
-    $scope.returnSteps = function() {
-      $scope.hideSteps = false;
-      $scope.hideStepEdit = true;      
-    }
-
     $scope.hideActSteps = false;
 
     $scope.toggleActSteps = function(){

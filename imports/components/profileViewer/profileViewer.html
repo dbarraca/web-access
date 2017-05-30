@@ -18,7 +18,8 @@
           {{profile.name}}
         </div>
 
-        <a href="" class="profile-editor-link" ng-click="profEdit(profile.name)">Edit</a>
+        <a href="" class="profile-editor-link" ui-sref="profEdit({profileName: profile.name})">Edit</a>
+
         <a href="" class="profile-editor-link" ng-click="deleteProf(profile._id)"> - </a>
         <p class="profile-info">Created: firstName lastName 12/12/12 12:00</p>
         <p class="profile-info">Edited: firstName lastName 12/12/12 12:00</p>
@@ -29,9 +30,3 @@
   </li>
 </ul>
 </div>
-
-<profile-editor ng-hide="hideProfEdit"></profile-editor>
-
-<a href="" class="return-profiles orange  " ng-hide="hideProfEdit" ng-click="returnProfs()">
-  Return to Profiles
-</a>
